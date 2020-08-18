@@ -51,7 +51,7 @@ class PopularProductTiles extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
+        Navigator.push(context, ScaleRoute(page: ProductDetailsPage()));
       },
       child: Column(
         children: <Widget>[

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ingro/animation/ScaleRoute.dart';
-import 'package:ingro/pages/ProductOrderPage.dart';
+import 'package:ingro/pages/ProductCartPage.dart';
 import 'package:ingro/widgets/ProductDetailsSlider.dart';
 
-class FoodDetailsPage extends StatefulWidget {
+class ProductDetailsPage extends StatefulWidget {
   @override
-  _FoodDetailsPageState createState() => _FoodDetailsPageState();
+  _ProductDetailsPageState createState() => _ProductDetailsPageState();
 }
 
-class _FoodDetailsPageState extends State<FoodDetailsPage> {
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -33,7 +33,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   color: Color(0xFF3a3737),
                 ),
                 onPressed: () {
-                  Navigator.push(context, ScaleRoute(page: FoodOrderPage()));
+                  Navigator.push(context, ScaleRoute(page: ProductCartPage()));
                 })
           ],
         ),
@@ -49,7 +49,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 child: Image.asset(
-                  'assets/images/bestfood/' + 'ic_best_food_8' + ".jpeg",
+                  'assets/images/FruitesandVegetables/' + 'banana' + ".jpg",
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(3.0),
@@ -66,9 +66,9 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
               ),*/
 
               FoodTitleWidget(
-                  productName: "Grilled Salmon",
+                  productName: "Bananan",
                   productPrice: "\$96.00",
-                  productHost: "pizza hut"),
+                  shop_name: "Raveena Super Market"),
               SizedBox(
                 height: 15,
               ),
@@ -88,10 +88,10 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   ),
                   tabs: [
                     Tab(
-                      text: 'Food Details',
+                      text: 'Product Details',
                     ),
                     Tab(
-                      text: 'Food Reviews',
+                      text: 'Product Reviews',
                     ),
                   ], // list of tabs
                 ),
@@ -123,13 +123,13 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
 class FoodTitleWidget extends StatelessWidget {
   String productName;
   String productPrice;
-  String productHost;
+  String shop_name;
 
   FoodTitleWidget({
     Key key,
     @required this.productName,
     @required this.productPrice,
-    @required this.productHost,
+    @required this.shop_name,
   }) : super(key: key);
 
   @override
@@ -168,7 +168,7 @@ class FoodTitleWidget extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
             Text(
-              productHost,
+              shop_name,
               style: TextStyle(
                   fontSize: 16,
                   color: Color(0xFF1f1f1f),
@@ -286,7 +286,7 @@ class AddToCartMenu extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, ScaleRoute(page: FoodOrderPage()));
+              Navigator.push(context, ScaleRoute(page: ProductCartPage()));
             },
             child: Container(
               width: 200.0,
@@ -298,7 +298,7 @@ class AddToCartMenu extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  'Add To Bag',
+                  'Add To Cart',
                   style: new TextStyle(
                       fontSize: 18.0,
                       color: Colors.white,

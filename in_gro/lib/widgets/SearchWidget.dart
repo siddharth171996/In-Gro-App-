@@ -19,10 +19,10 @@ class SearchWidget extends StatelessWidget {
           filled: true,
           prefixIcon: Icon(
             Icons.search,
-            color: Color(0xFFfb3132),
+            color: Color(0xFF006aff),
           ),
           fillColor: Color(0xFFFAFAFA),
-          suffixIcon: Icon(Icons.sort,color: Color(0xFFfb3132),),
+          suffixIcon: Icon(Icons.sort,color: Color(0xFF006aff),),
           hintStyle: new TextStyle(color: Color(0xFFd0cece), fontSize: 18),
           hintText: "What would your like to buy?",
         ),

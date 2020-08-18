@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ingro/animation/ScaleRoute.dart';
+import 'package:ingro/pages/ProductCartPage.dart';
+
+import 'PopularProdutsWidget.dart';
 
 class BestProductWidget extends StatefulWidget {
   @override
@@ -65,7 +69,9 @@ class BestProductTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+
+      },
       child: Column(
         children: <Widget>[
           Container(

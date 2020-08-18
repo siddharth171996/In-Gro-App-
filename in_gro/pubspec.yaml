@@ -106,6 +106,7 @@ flutter:
       - assets/images/ShopPics/Gro3.jpg
       - assets/images/ShopPics/Gro4.jpg
       - assets/images/ShopPics/Gro5.jpg
+      - assets/images/menus/cash.jpg
       - assets/images/menus/ic_cart.png
       - assets/images/menus/ic_home.png
       - assets/images/menus/ic_delete.png

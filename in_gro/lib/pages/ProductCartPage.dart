@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class FoodOrderPage extends StatefulWidget {
+class ProductCartPage extends StatefulWidget {
   @override
-  _FoodOrderPageState createState() => _FoodOrderPageState();
+  _ProductCartPageState createState() => _ProductCartPageState();
 }
 
-class _FoodOrderPageState extends State<FoodOrderPage> {
+class _ProductCartPageState extends State<ProductCartPage> {
   int counter = 3;
 
   @override
@@ -46,7 +46,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                 Container(
                   padding: EdgeInsets.only(left: 5),
                   child: Text(
-                    "Your Food Cart",
+                    "Your Product Cart",
                     style: TextStyle(
                         fontSize: 20,
                         color: Color(0xFF3a3a3b),
@@ -58,17 +58,17 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                   height: 10,
                 ),
                 CartItem(
-                    productName: "Grilled Salmon",
+                    productName: "Banana",
                     productPrice: "\$96.00",
-                    productImage: "ic_popular_food_1",
+                    productImage: "banana",
                     productCartQuantity: "2"),
                 SizedBox(
                   height: 10,
                 ),
                 CartItem(
-                    productName: "Meat vegetable",
+                    productName: "Orange",
                     productPrice: "\$65.08",
-                    productImage: "ic_popular_food_4",
+                    productImage: "orange",
                     productCartQuantity: "5"),
                 SizedBox(
                   height: 10,
@@ -95,7 +95,10 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                 SizedBox(
                   height: 10,
                 ),
-                PaymentMethodWidget(),
+
+                PaymentMethodCartWidget(),
+                PaymentMethodCashWidget(),
+
               ],
             ),
           ),
@@ -103,7 +106,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
   }
 }
 
-class PaymentMethodWidget extends StatelessWidget {
+class PaymentMethodCartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -155,6 +158,58 @@ class PaymentMethodWidget extends StatelessWidget {
   }
 }
 
+class PaymentMethodCashWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 60,
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Color(0xFFfae3e2).withOpacity(0.1),
+          spreadRadius: 1,
+          blurRadius: 1,
+          offset: Offset(0, 1),
+        ),
+      ]),
+      child: Card(
+        color: Colors.white,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(5.0),
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(left: 10, right: 30, top: 10, bottom: 10),
+          child: Row(
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  "assets/images/menus/cash.jpg",
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              Text(
+                "COD",
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFF3a3a3b),
+                    fontWeight: FontWeight.w400),
+                textAlign: TextAlign.left,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class TotalCalculationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -190,7 +245,7 @@ class TotalCalculationWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Grilled Salmon",
+                    "Banana",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -214,7 +269,7 @@ class TotalCalculationWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Meat vegetable",
+                    "Orange",
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -307,6 +362,7 @@ class CartItem extends StatelessWidget {
   String productPrice;
   String productImage;
   String productCartQuantity;
+  String shop_name;
 
   CartItem({
     Key key,
@@ -314,6 +370,7 @@ class CartItem extends StatelessWidget {
     @required this.productPrice,
     @required this.productImage,
     @required this.productCartQuantity,
+    @required this.shop_name,
   }) : super(key: key);
 
   @override
@@ -348,7 +405,7 @@ class CartItem extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Center(
                         child: Image.asset(
-                      "assets/images/popular_foods/$productImage.png",
+                      "assets/images/FruitesandVegetables/$productImage.jpg",
                       width: 110,
                       height: 100,
                     )),
